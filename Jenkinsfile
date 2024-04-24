@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    }
     environment {
     dockerhub=credentials('dockerhub')
     }
@@ -30,5 +29,5 @@ pipeline {
                 sh 'docker container run -dt --name ecomm-app --restart always -p 80:80 srinidhi3108/ecomm'
             }
          }
-	}
+     }
 }
