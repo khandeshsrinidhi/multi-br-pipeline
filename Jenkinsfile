@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Docker Build') {
             steps {
-                sh 'docker build -t srinidhi3108/ecomm .'
+                sh 'docker build -t srinidhi3108/ecomm1 .'
              }
           }
         stage('Docker Login') {
@@ -16,17 +16,17 @@ pipeline {
           }
         stage('Docker Push') {
             steps {
-                sh 'docker push srinidhi3108/ecomm'
+                sh 'docker push srinidhi3108/ecomm1'
             }
           }
         stage('Remove old images') {
             steps {
-                sh 'docker rmi -f srinidhi3108/ecomm'
+                sh 'docker rmi -f srinidhi3108/ecomm1'
               }
           }
         stage('Docker run'){
             steps{
-                sh 'docker container run -dt --name ecomm-app --restart always -p 80:80 srinidhi3108/ecomm'
+                sh 'docker container run -dt --name ecomm-app --restart always -p 80:80 srinidhi3108/ecomm1'
             }
          }
      }
